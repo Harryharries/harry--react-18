@@ -66,6 +66,11 @@
   }
 }
  
+.test{
+  border-style: solid;
+  border-width: 1px;
+  border-color: red;
+}
 @layer base {
   * {
     @apply border-border;
