@@ -19,12 +19,6 @@ const Header = () => {
         <div className="hidden md:block">
           <MainNav />
         </div>
-        {/* <div className="md:hidden">
-          <MobileNav />
-        </div>
-        <div className="hidden md:block">
-          <MainNav />
-        </div> */}
       </div>
     </div>
   );
