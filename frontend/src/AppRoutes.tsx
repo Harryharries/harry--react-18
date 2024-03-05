@@ -9,6 +9,7 @@ import ProtectedRoute from "./auth/ProtectedRoute";
 // import AuthCallbackPage from "./pages/AuthCallbackPage";
 // import ProtectedRoute from "./auth/ProtectedRoute";
 import ManageRestaurantPage from "./pages/ManageRestaurantPage";
+import SearchPage from "./pages/SearchPage";
 // import SearchPage from "./pages/SearchPage";
 // import DetailPage from "./pages/DetailPage";
 // import OrderStatusPage from "./pages/OrderStatusPage";
@@ -18,6 +19,11 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Layout showHero><HomePage></HomePage></Layout>} />
       <Route path="/auth-callback" element={<AuthCallbackPage />} />
+      <Route path="/search/:city" element={
+        <Layout showHero={false}>
+          <SearchPage></SearchPage>
+        </Layout>
+      }/>
       <Route element={<ProtectedRoute />}>
         <Route path="/user-profile" element={<Layout><UserProfilePage/></Layout>} />
         <Route
