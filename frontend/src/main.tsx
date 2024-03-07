@@ -1,4 +1,3 @@
-// import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './global.css'
 import InterviewPage from './pages/interview/interview'
@@ -18,6 +17,7 @@ import { ThemeProvider } from './pages/interview/context/provider/ThemeProvider'
 // });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+
   <ThemeProvider>
     <InterviewPage></InterviewPage>
   </ThemeProvider>
@@ -31,4 +31,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   //     </QueryClientProvider>
   //   </Router>
   // </React.StrictMode>,
+    // <Router>
+    //   <AppRoutes></AppRoutes>
+    // </Router>
+
 )
