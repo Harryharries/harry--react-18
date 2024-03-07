@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { Country } from "../type/types";
 
 export function useCountriesFetch(searchInput:string){
-    const [countries, setCountries] = useState<Country[]>([]);
+    const [countries, setCountries] = useState<Country[] | null>(null);
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const abortControllerRef = useRef<AbortController | null>(null)
     const BASE_URL = "https://restcountries.com/v3.1/";
 
-    
+
     useEffect(()=>{
         const fetchCountries = async () => {
             abortControllerRef.current = new AbortController()

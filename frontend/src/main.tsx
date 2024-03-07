@@ -2,6 +2,7 @@
 import ReactDOM from 'react-dom/client'
 import './global.css'
 import InterviewPage from './pages/interview/interview'
+import { ThemeProvider } from './pages/interview/context/provider/ThemeProvider'
 // import { BrowserRouter as Router } from "react-router-dom";
 // import AppRoutes from './AppRoutes';
 // import Auth0ProviderWithNavigate from './auth/Auth0ProviderWithNavigate';
@@ -17,7 +18,9 @@ import InterviewPage from './pages/interview/interview'
 // });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <InterviewPage></InterviewPage>
+  <ThemeProvider>
+    <InterviewPage></InterviewPage>
+  </ThemeProvider>
   // <React.StrictMode>
   //   <Router>
   //     <QueryClientProvider client={queryClient}>

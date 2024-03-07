@@ -1,20 +1,24 @@
 import {  useState } from "react";
 import { useDebounce } from "./Hooks/UseDebounce";
 import { useCountriesFetch } from "./Hooks/UseCountriesFetch";
-import { CountryList } from "./component/ui/CountryList";
+import { CountryList } from "./component/CountryList";
+import { useTheme } from "./context/ThemeContext";
 
 
 function InterviewPage() {
   const [searchInput, setSearchInput] = useState("");
   const debounceSearch = useDebounce(searchInput);
   const {countries, error, loading} = useCountriesFetch(debounceSearch)
-
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="p-4">
+    
+    <div className={`p-4 ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
+      <button onClick={toggleTheme}>Toggle Theme</button>
       <div>
         <input
           type="text"
+          className={theme === 'dark' ? 'input-dark' : 'input-light'} 
           placeholder="search"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -25,7 +29,7 @@ function InterviewPage() {
       ) : (
         <>
           {error && <div> {error} </div>}
-          {!error && <CountryList countries={countries}></CountryList>}
+          {(!error && countries) && <CountryList countries={countries}></CountryList>}
         </>
       )}
     </div>
