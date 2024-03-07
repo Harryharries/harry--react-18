@@ -1,7 +1,8 @@
 import ReactDOM from 'react-dom/client'
 import './global.css'
-import { ThemeProvider } from './pages/interview/context/provider/ThemeProvider'
-import InterviewPage from './pages/interview/interview'
+// import { ThemeProvider } from './pages/interview/context/provider/ThemeProvider'
+// import InterviewPage from './pages/interview/interview'
+import Playground from './pages/test/Playground'
 
 
 // const queryClient = new QueryClient({
@@ -14,9 +15,9 @@ import InterviewPage from './pages/interview/interview'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
 
-  <ThemeProvider>
-    <InterviewPage></InterviewPage>
-  </ThemeProvider>
+  // <ThemeProvider>
+  //   <InterviewPage></InterviewPage>
+  // </ThemeProvider>
   // <React.StrictMode>
   //   <Router>
   //     <QueryClientProvider client={queryClient}>
@@ -30,6 +31,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     // <Router>
     //   <AppRoutes></AppRoutes>
     // </Router>
-    //<Playground></Playground>
+    <Playground></Playground>
 
 )

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 const Playground = () => {
 
@@ -113,33 +113,67 @@ const Playground = () => {
 //   </div>
 // );
 
-const [count, setCount] = useState(0);
 
-useEffect(() => {
-  // The code that we want to run
-  console.log('The count is:', count);
+// common
+// const [count, setCount] = useState(0);
 
-  // Optional return function
-  return () => {
-    console.log('I am being cleaned up!');
-  };
-}, [count]); // The dependency array
+// useEffect(() => {
+//   // The code that we want to run
+//   console.log('The count is:', count);
 
+//   // Optional return function
+//   return () => {
+//     console.log('I am being cleaned up!');
+//   };
+// }, [count]); // The dependency array
+
+
+// return (
+//   <div className='tutorial'>
+//     <h1>Count: {count}</h1>
+//     <button onClick={() => setCount(count - 1)}>
+//       Decrement
+//     </button>
+//     <button onClick={() => setCount(count + 1)}>
+//       Increment
+//     </button>
+
+//   </div>
+// );
+
+//
+const [state, dispatch] = useReducer(counterReducer, { count: 0 });
+
+console.log("render")
 
 return (
-  <div className='tutorial'>
-    <h1>Count: {count}</h1>
-    <button onClick={() => setCount(count - 1)}>
-      Decrement
-    </button>
-    <button onClick={() => setCount(count + 1)}>
-      Increment
-    </button>
-
+  <div>
+    Count: {state.count}
+    <button onClick={() => dispatch({ type: 'increment', payload: 1 })}>Increment</button>
+    <button onClick={() => dispatch({ type: 'decrement', payload: 1 })}>Decrement</button>
   </div>
 );
 
 
 };
+type CounterState = {
+  count: number;
+};
+
+type CounterAction =
+  | { type: 'increment'; payload: number }
+  | { type: 'decrement'; payload: number };
+
+  const counterReducer = (state: CounterState, action: CounterAction): CounterState => {
+    switch (action.type) {
+      case 'increment':
+        return { count: state.count + action.payload };
+      case 'decrement':
+        return { count: state.count - action.payload };
+      default:
+        // TypeScript ensures exhaustiveness checking. This part helps to ensure that every action is handled.
+        throw new Error(`Unhandled action type`);
+    }
+  };
 
 export default Playground;
