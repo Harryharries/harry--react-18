@@ -2,7 +2,7 @@
 // import Footer from "@/components/Footer";
 // import Header from "@/components/Header";
 // import Hero from "@/components/Hero";
-import Playground from "@/components/Playground";
+// import Playground from "@/components/Playground";
 // import Hero from "@/components/Hero";
 
 type Props = {
@@ -17,7 +17,7 @@ const Layout = ({ children }: Props) => {
       {showHero && <Hero />}
       <div className="container mx-auto flex-1 py-10">{children}</div>
       <Footer /> */}
-      <Playground></Playground>
+      {/* <Playground></Playground> */}
       {/* {showHero && <Hero />} */}
       <div className="container mx-auto flex-1 py-1">--------------------{children}</div>
       {/* <Footer /> */}

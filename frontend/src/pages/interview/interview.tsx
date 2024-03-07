@@ -1,8 +1,9 @@
-import {  useState } from "react";
+import {  useCallback, useState } from "react";
 import { useDebounce } from "./Hooks/UseDebounce";
 import { useCountriesFetch } from "./Hooks/UseCountriesFetch";
 import { CountryList } from "./component/CountryList";
 import { useTheme } from "./context/ThemeContext";
+import { SearchInput } from "./component/ui/SearchInput";
 
 
 function InterviewPage() {
@@ -10,19 +11,33 @@ function InterviewPage() {
   const debounceSearch = useDebounce(searchInput);
   const {countries, error, loading} = useCountriesFetch(debounceSearch)
   const { theme, toggleTheme } = useTheme();
+  
+
+  const reset = () => {
+    setSearchInput("")
+  }
+
+  const handleSearch = useCallback((text: string) => {
+    setSearchInput(text)
+  },[])
+  
+
 
   return (
     
     <div className={`p-4 ${theme === 'dark' ? 'dark-theme' : 'light-theme'}`}>
       <button onClick={toggleTheme}>Toggle Theme</button>
-      <div>
-        <input
+
+
+      <div className={`flex`}>
+        <SearchInput inputValue={searchInput} handleSearch={handleSearch}></SearchInput>
+        {/* <input
           type="text"
-          className={theme === 'dark' ? 'input-dark' : 'input-light'} 
-          placeholder="search"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-        ></input>
+        ></input> */}
+
+        <button onClick={reset}>RESET</button>
       </div>
       {loading ? (
         <div>Loading</div>

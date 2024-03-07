@@ -1,12 +1,3 @@
-// import { useQuery } from "@tanstack/react-query";
-
-// import { useEffect, useState } from "react";
-// // import Child from "./ui/test/Child";
-// import { User, fetchUsers } from "@/utils/utils";
-// import Search from "./ui/test/Search";
-// import { useDebounce } from "@/hooks/useDebounce";
-// import { Provider } from "@/services/providers/test/MyContext";
-// import Parent from "./ui/test/context/Parent";
 import { useEffect, useState } from "react";
 
 const Playground = () => {
@@ -123,7 +114,6 @@ const Playground = () => {
 // );
 
 const [count, setCount] = useState(0);
-const bad = {userId:count}
 
 useEffect(() => {
   // The code that we want to run
@@ -135,11 +125,6 @@ useEffect(() => {
   };
 }, [count]); // The dependency array
 
-useEffect(() => {
-    console.log('bad:', bad.userId);
-    bad.userId = 2
-  
-  }, [bad]); 
 
 return (
   <div className='tutorial'>
@@ -150,6 +135,7 @@ return (
     <button onClick={() => setCount(count + 1)}>
       Increment
     </button>
+
   </div>
 );
 

@@ -26,6 +26,7 @@ export {CountryList}
 
 // const CountryList: React.FC<Props> = React.memo(({countries})=>{
 //   const items = [];
+//   if(countries.length < 3)
 //   for (let i = 0; i < 1500; i++) {
 //     items.push(<SlowPost key={i} index={i} />);
 //   }

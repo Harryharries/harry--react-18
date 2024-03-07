@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useMemo } from 'react';
 import { ThemeContext } from '../ThemeContext'; // Adjust the import path as needed
 
 interface ThemeProviderProps {
@@ -9,9 +9,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = () => setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-
+  const value = useMemo(() => ({ theme, toggleTheme }), [theme]);
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={ value }>
       {children}
     </ThemeContext.Provider>
   );
