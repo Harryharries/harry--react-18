@@ -2,7 +2,9 @@ import ReactDOM from 'react-dom/client'
 import './global.css'
 // import { ThemeProvider } from './pages/interview/context/provider/ThemeProvider'
 // import InterviewPage from './pages/interview/interview'
-import Playground from './pages/test/Playground'
+// import Playground from './pages/test/Playground'
+import { PageSearch } from './pages/interview/pageSearch'
+import { ProductProvider } from './pages/interview/context/provider/ProductProvider'
 
 
 // const queryClient = new QueryClient({
@@ -14,6 +16,9 @@ import Playground from './pages/test/Playground'
 // });
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+  <ProductProvider>
+    <PageSearch></PageSearch>
+  </ProductProvider>
 
   // <ThemeProvider>
   //   <InterviewPage></InterviewPage>
@@ -31,6 +36,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     // <Router>
     //   <AppRoutes></AppRoutes>
     // </Router>
-    <Playground></Playground>
+    // <Playground></Playground>
 
 )

@@ -2,8 +2,8 @@ import {  useCallback, useState } from "react";
 import { useDebounce } from "./Hooks/UseDebounce";
 import { useCountriesFetch } from "./Hooks/UseCountriesFetch";
 import { CountryList } from "./component/CountryList";
-import { useTheme } from "./context/ThemeContext";
 import { SearchInput } from "./component/ui/SearchInput";
+import { useTheme } from "./context/ThemeContext";
 
 
 function InterviewPage() {
@@ -19,7 +19,7 @@ function InterviewPage() {
 
   const handleSearch = useCallback((text: string) => {
     setSearchInput(text)
-  },[])
+  },[setSearchInput])
   
 
 

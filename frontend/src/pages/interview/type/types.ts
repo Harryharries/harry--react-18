@@ -4,3 +4,16 @@ export interface Country {
     };
     capital: string;
   }
+
+export interface Product {
+  id: number,
+  title: string,
+  price: number
+}
+
+export interface ProductRes{
+  products: Product[];
+  total: number,
+  skip: number,
+  limit: number,
+}
